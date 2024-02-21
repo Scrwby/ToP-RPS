@@ -1,19 +1,34 @@
-const tools = ['rock', 'paper', 'scissors'];
 
+const tools = ['rock', 'paper', 'scissors'];
 
 function getComputerChoice(){
     return tools[(Math.floor(Math.random() * tools.length))];
 }
-    console.log(getComputerChoice());
 
 function playRound(playerSelection, computerSelection){
-    if (playerSelection == computerSelection){
-        console.log('It\'s a tie');
-    } else {
-        console.log('Try again.');
-    }
-}
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
 
-    const playerSelection = getUserChoice();
+    if (playerSelection === computerSelection){
+        return "It's a tie!";
+    }
+
+
+    if (
+        (playerSelection === 'rock' && computerSelection === 'scissors') ||
+        (playerSelection === 'paper' && computerSelection === 'rock') ||
+        (playerSelection === 'scissors' && computerSelection === 'paper')
+    ){ 
+        return 'Player Wins!'
+    };
+
+
+        return 'Computer Wins';
+    
+    }
+    
+    
+    const playerSelection = 'rock';
     const computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
+    
